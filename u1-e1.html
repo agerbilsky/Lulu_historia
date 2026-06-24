@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Industrial, Ilustración y Locke · Historia Lulú</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#100a06;--card:#1d140d;--border:#3a2a1b;
+  --accent:#f59e0b;--accent2:#ef4444;
+  --correct:#34d399;--wrong:#f87171;
+  --text:#fdf3e3;--muted:#a8916f;
+}
+html,body{min-height:100%;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  -webkit-tap-highlight-color:transparent}
+body{display:flex;flex-direction:column;align-items:center;padding:20px 14px 60px}
+header{text-align:center;margin-bottom:22px;width:100%;max-width:480px}
+.back{display:inline-block;color:var(--accent);font-size:13px;font-weight:600;
+  text-decoration:none;margin-bottom:14px;padding:6px 14px;border-radius:99px;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:6px}
+h1{font-size:clamp(24px,7vw,34px);font-weight:800;color:#fff;line-height:1.15;margin-bottom:8px}
+.tag-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:8px 0 6px}
+.tag{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
+  border-radius:99px;padding:3px 11px;font-size:11px;color:var(--accent);font-weight:600}
+.subtitle{color:var(--muted);font-size:12px;margin-top:4px}
+.pw{width:100%;max-width:480px;margin-bottom:16px}
+.pm{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.pt{height:5px;background:var(--border);border-radius:99px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-radius:99px;transition:width .4s ease}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:22px 18px;width:100%;max-width:480px;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.qn{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px}
+.qbadge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent2);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  border-radius:99px;padding:2px 9px;margin-left:8px;vertical-align:middle}
+.qt{font-size:clamp(15px,4vw,18px);font-weight:700;line-height:1.45;margin-bottom:20px;color:#fff}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{background:transparent;border:1.5px solid var(--border);border-radius:13px;
+  padding:13px 14px;color:var(--text);font-family:inherit;font-size:14px;text-align:left;
+  cursor:pointer;display:flex;align-items:flex-start;gap:11px;line-height:1.45;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  transition:border-color .15s,background .15s;width:100%}
+.opt:active:not(:disabled){background:rgba(255,255,255,0.05)}
+.ol{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;
+  transition:background .2s;flex-shrink:0}
+.opt.correct{border-color:var(--correct);background:rgba(52,211,153,.08)}
+.opt.correct .ol{background:var(--correct);color:#0d1f17}
+.opt.wrong{border-color:var(--wrong);background:rgba(248,113,113,.08)}
+.opt.wrong .ol{background:var(--wrong);color:#fff}
+.opt:disabled{cursor:default}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:13px;
+  line-height:1.55;display:none}
+.fb.show{display:block}
+.fb.ok{background:rgba(52,211,153,.09);border:1px solid rgba(52,211,153,.25);color:#6ee7b7}
+.fb.bad{background:rgba(248,113,113,.09);border:1px solid rgba(248,113,113,.25);color:#fca5a5}
+.bn{margin-top:16px;width:100%;padding:15px;border-radius:13px;border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;
+  font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;display:none;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.bn.show{display:block}
+.results{display:none;width:100%;max-width:480px}
+.results.show{display:block}
+.rc{background:var(--card);border:1px solid var(--border);border-radius:20px;
+  padding:36px 18px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.sr{width:110px;height:110px;border-radius:50%;
+  background:conic-gradient(var(--accent) var(--pct,0%),var(--border) 0);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative}
+.sr::before{content:'';width:80px;height:80px;border-radius:50%;
+  background:var(--card);position:absolute}
+.sn{font-size:24px;font-weight:800;position:relative;z-index:1;color:#fff}
+.rc h2{font-size:20px;font-weight:700;margin-bottom:6px;color:#fff}
+.rc>p{color:var(--muted);font-size:13px;margin-bottom:22px}
+.rl{text-align:left;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.ri{padding:10px 13px;border-radius:10px;font-size:12px;line-height:1.5;border:1px solid}
+.ri.ok{border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.06)}
+.ri.fail{border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.06)}
+.ri .rlab{font-weight:600;display:block;margin-bottom:2px}
+.ri.ok .rlab{color:#6ee7b7}.ri.fail .rlab{color:#fca5a5}
+.ri .rans{color:var(--muted);font-size:11px}
+.br{width:100%;padding:15px;border-radius:13px;border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;
+  font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;touch-action:manipulation}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="back">← Volver al inicio</a>
+  <div class="eyebrow">Unidad 1 · Preguntas guía 1–3</div>
+  <h1>🏭 Industrial, Ilustración y Locke</h1>
+  <div class="tag-row"><span class="tag">🏭 Rev. Industrial</span><span class="tag">💡 Ilustración</span><span class="tag">⚖️ Locke</span></div>
+  <p class="subtitle">15 preguntas (12 opción múltiple + 3 V/F) · Basado en tu resumen</p>
+</header>
+<div class="pw">
+  <div class="pm"><span id="pt">Pregunta 1 de 15</span><span id="st">0 correctas</span></div>
+  <div class="pt"><div class="pf" id="pf" style="width:6%"></div></div>
+</div>
+<div class="card" id="qcard">
+  <div class="qn"><span id="qn">Pregunta 1</span><span class="qbadge" id="qb" style="display:none"></span></div>
+  <div class="qt" id="qt"></div>
+  <div class="opts" id="qo"></div>
+  <div class="fb" id="fb"></div>
+  <button class="bn" id="bn">Siguiente →</button>
+</div>
+<div class="results" id="res">
+  <div class="rc">
+    <div class="sr" id="sr"><span class="sn" id="sf"></span></div>
+    <h2 id="rt"></h2><p id="rs"></p>
+    <div class="rl" id="rl"></div>
+    <button class="br" onclick="init()">🔁 Intentar de nuevo</button>
+  </div>
+</div>
+<script>
+var Q=[{"q": "¿Cuál fue una de las consecuencias sociales más importantes de la Revolución Industrial?", "opts": ["El regreso masivo de la población al campo", "El crecimiento de las ciudades por la migración hacia las fábricas", "La desaparición del trabajo asalariado", "La eliminación de las clases sociales"], "ans": 1, "exp": "Mucha gente dejó el campo para trabajar en fábricas, y por eso crecieron las ciudades (urbanización).", "vf": false}, {"q": "¿Qué dos grandes grupos sociales se distinguieron con más claridad?", "opts": ["Nobleza y clero", "Patricios y plebeyos", "Burguesía y clase obrera (proletariado)", "Girondinos y jacobinos"], "ans": 2, "exp": "La burguesía (dueña de fábricas, comercios y capital) y el proletariado (trabajadores que viven de su salario).", "vf": false}, {"q": "¿Cómo eran las condiciones de trabajo de los obreros?", "opts": ["Jornadas cortas y salarios altos", "Largas jornadas, sueldos bajos y una vida muy dura", "Trabajo voluntario y bien pago", "Iguales a las de la burguesía"], "ans": 1, "exp": "Largas jornadas y salarios bajos: hubo progreso económico, pero también pobreza urbana y explotación.", "vf": false}, {"q": "La Ilustración defendía sobre todo el uso de…", "opts": ["la fuerza militar", "la razón para comprender el mundo y mejorar la sociedad", "la tradición como única verdad", "el poder absoluto del rey"], "ans": 1, "exp": "Los ilustrados valoraban la razón, la libertad y el conocimiento, en lugar de aceptar todo por tradición o religión.", "vf": false}, {"q": "¿En qué contexto surgió la Ilustración, según el cuadernillo?", "opts": ["Tras la caída del Imperio Romano", "Entre fines del siglo XVII y el XVIII, junto a la Revolución Gloriosa, Newton y Locke", "Durante la Edad Media", "Después de la independencia argentina"], "ans": 1, "exp": "Surge entre fines del s. XVII y el s. XVIII, ligada a la Revolución Gloriosa inglesa, los avances de Newton y los escritos de Locke.", "vf": false}, {"q": "¿Cuál fue la relación de la Ilustración con el absolutismo?", "opts": ["Lo apoyaba plenamente", "Era totalmente indiferente", "Quería darle aún más poder al rey", "De enfrentamiento: criticaba el poder por 'derecho divino'"], "ans": 3, "exp": "La Ilustración criticó que el rey tuviera todo el poder por derecho divino y propuso límites. Así ayudó a debilitar el absolutismo.", "vf": false}, {"q": "Para el liberalismo de Locke, ¿cuáles son los derechos naturales?", "opts": ["El voto, la educación y el trabajo", "La vida, la libertad y la propiedad", "La igualdad económica total", "El derecho a gobernar"], "ans": 1, "exp": "Los derechos naturales (que se tienen por ser persona) son la vida, la libertad y la propiedad.", "vf": false}, {"q": "Según Locke, ¿cuál es la función del gobierno respecto de esos derechos?", "opts": ["Crearlos desde cero", "Eliminarlos", "Protegerlos; si no lo hace, pierde legitimidad", "Repartirlos según la riqueza"], "ans": 2, "exp": "El gobierno no crea los derechos: su función es protegerlos. Si no lo hace, pierde legitimidad.", "vf": false}, {"q": "¿Cómo caracteriza Locke el 'estado de naturaleza'?", "opts": ["Un caos total y permanente", "Una situación de personas libres e iguales, pero sin autoridad común que resuelva conflictos", "Un gobierno absoluto", "La vida dentro de un Estado ya organizado"], "ans": 1, "exp": "No es caos total: son libres e iguales, pero al no haber autoridad común, cada uno es juez de su propio caso.", "vf": false}, {"q": "¿Cuál es el principal problema del estado de naturaleza?", "opts": ["Que hay demasiadas leyes", "Que, sin ley común ni juez para todos, hay mucha inseguridad", "Que el rey tiene poco poder", "Que nadie es libre"], "ans": 1, "exp": "Aunque hay libertad, falta una ley común y un juez imparcial, y cualquier conflicto puede terminar en injusticia.", "vf": false}, {"q": "Los ilustrados pensaban que las personas debían…", "opts": ["aceptar todo por tradición", "obedecer sin preguntar", "analizar, cuestionar y pensar por sí mismas", "seguir solo a la Iglesia"], "ans": 2, "exp": "Valían el pensamiento propio: no aceptar todo por tradición o religión, sino cuestionar y razonar.", "vf": false}, {"q": "En síntesis, la Revolución Industrial trajo…", "opts": ["solo beneficios para todos por igual", "progreso económico y tecnológico, pero también pobreza urbana y desigualdad", "el fin del trabajo en fábricas", "una sociedad más igualitaria"], "ans": 1, "exp": "Progreso económico y tecnológico, pero también explotación laboral, pobreza urbana y mayor desigualdad.", "vf": false}, {"q": "Durante la Revolución Industrial, la mayoría de la gente se mudó de las ciudades al campo.", "opts": ["Verdadero", "Falso"], "ans": 1, "exp": "Fue al revés: del campo a las ciudades, para trabajar en las fábricas.", "vf": true}, {"q": "Para Locke, el estado de naturaleza significa necesariamente un caos total.", "opts": ["Verdadero", "Falso"], "ans": 1, "exp": "No es caos total: las personas son libres e iguales, pero falta una autoridad común imparcial.", "vf": true}, {"q": "La Ilustración apoyaba la idea de que el rey tenía todo el poder porque 'Dios lo quiso así'.", "opts": ["Verdadero", "Falso"], "ans": 1, "exp": "Al contrario: la Ilustración criticaba esa idea y proponía límites al poder.", "vf": true}];
+var cur=0,score=0,ans=[];
+var T=Q.length;
+function init(){cur=0;score=0;ans=[];
+  document.getElementById('qcard').style.display='block';
+  document.getElementById('res').className='results';render()}
+function render(){
+  var q=Q[cur];
+  document.getElementById('qn').textContent='Pregunta '+(cur+1);
+  var qb=document.getElementById('qb');
+  if(q.vf){qb.style.display='inline-block';qb.textContent='Verdadero o Falso';}
+  else{qb.style.display='none';}
+  document.getElementById('qt').textContent=q.q;
+  document.getElementById('pt').textContent='Pregunta '+(cur+1)+' de '+T;
+  document.getElementById('st').textContent=score+(score!==1?' correctas':' correcta');
+  document.getElementById('pf').style.width=(Math.round((cur/T)*100)+6)+'%';
+  var fb=document.getElementById('fb');fb.className='fb';fb.innerHTML='';
+  document.getElementById('bn').className='bn';
+  var c=document.getElementById('qo');c.innerHTML='';
+  var L=q.vf?['V','F']:['A','B','C','D'];
+  for(var i=0;i<q.opts.length;i++){(function(idx){
+    var b=document.createElement('button');b.className='opt';
+    b.innerHTML='<span class="ol">'+L[idx]+'</span><span>'+q.opts[idx]+'</span>';
+    b.addEventListener('click',function(){pick(idx)});c.appendChild(b);
+  })(i)}
+}
+function pick(idx){
+  var q=Q[cur];
+  var bs=document.querySelectorAll('.opt');
+  for(var i=0;i<bs.length;i++)bs[i].disabled=true;
+  var ok=idx===q.ans;if(ok)score++;
+  ans.push({q:q.q,chosen:idx,ans:q.ans,ok:ok,opts:q.opts});
+  bs[q.ans].className+=' correct';if(!ok)bs[idx].className+=' wrong';
+  var fb=document.getElementById('fb');
+  fb.innerHTML=ok?'✅ ¡Correcto! '+q.exp:'❌ Incorrecto. La correcta era: '+q.opts[q.ans]+'. '+q.exp;
+  fb.className='fb show '+(ok?'ok':'bad');
+  var bn=document.getElementById('bn');
+  bn.textContent=cur<T-1?'Siguiente →':'Ver resultados 🎉';bn.className='bn show';
+}
+document.getElementById('bn').addEventListener('click',function(){
+  cur++;if(cur<T)render();else showRes();
+});
+function showRes(){
+  document.getElementById('qcard').style.display='none';
+  document.getElementById('res').className='results show';
+  var pct=Math.round((score/T)*100);
+  document.getElementById('sr').style.setProperty('--pct',pct+'%');
+  document.getElementById('sf').textContent=score+'/'+T;
+  var ti,su;
+  if(score===T){ti='¡Perfecto! 🌟';su=''+T+'/'+T+'. ¡Lo tenés clavado!'}
+  else if(score>=T*.8){ti='¡Muy bien! 💪';su='Casi todo bien. Repasá las que fallaste.'}
+  else if(score>=T*.6){ti='Bien, podés mejorar 📚';su='Más de la mitad bien. Vale repasar.'}
+  else{ti='A repasar 😅';su='No te preocupes, con otro repaso va a quedar. 💛'}
+  document.getElementById('rt').textContent=ti;document.getElementById('rs').textContent=su;
+  var rl=document.getElementById('rl');rl.innerHTML='';
+  for(var i=0;i<ans.length;i++){
+    var a=ans[i];var d=document.createElement('div');d.className='ri '+(a.ok?'ok':'fail');
+    var h='<span class="rlab">'+(a.ok?'✅':'❌')+' P'+(i+1)+': '+a.q+'</span>';
+    if(!a.ok)h+='<span class="rans">Tu respuesta: '+a.opts[a.chosen]+' · Correcta: '+a.opts[a.ans]+'</span>';
+    d.innerHTML=h;rl.appendChild(d);
+  }
+}
+init();
+</script>
+</body>
+</html>
