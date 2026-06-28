@@ -34,9 +34,9 @@ html,body{min-height:100%;background:var(--bg);color:var(--text);
 .stat-lbl{font-size:10px;color:var(--muted);margin-top:2px;font-weight:500}
 
 /* tabs */
-.tabs{display:flex;gap:8px;width:100%;margin-bottom:28px;background:rgba(255,255,255,.03);
+.tabs{display:flex;gap:6px;width:100%;margin-bottom:28px;background:rgba(255,255,255,.03);
   border:1px solid var(--border);border-radius:14px;padding:5px}
-.tab{flex:1;text-align:center;padding:11px 8px;border-radius:10px;font-size:13px;font-weight:700;
+.tab{flex:1;text-align:center;padding:11px 6px;border-radius:10px;font-size:12.5px;font-weight:700;
   color:var(--muted);cursor:pointer;border:none;background:transparent;font-family:inherit;
   transition:background .2s,color .2s;touch-action:manipulation}
 .tab.active{background:linear-gradient(135deg,#f59e0b,#dc2626);color:#fff}
@@ -65,16 +65,24 @@ html,body{min-height:100%;background:var(--bg);color:var(--text);
 .t9::before{background:linear-gradient(90deg,#f97316,#fbbf24)}
 .t10::before{background:linear-gradient(90deg,#eab308,#f59e0b)}
 .t11::before{background:linear-gradient(90deg,#dc2626,#ea580c)}
+.t12::before{background:linear-gradient(90deg,#f59e0b,#dc2626)}
+.t13::before{background:linear-gradient(90deg,#f97316,#eab308)}
+.t14::before{background:linear-gradient(90deg,#dc2626,#f59e0b)}
+.t15::before{background:linear-gradient(90deg,#ea580c,#fbbf24)}
 .t1{border-color:rgba(245,158,11,.22)}.t2{border-color:rgba(251,146,60,.22)}
 .t3{border-color:rgba(217,119,6,.22)}.t4{border-color:rgba(239,68,68,.22)}
 .t5{border-color:rgba(249,115,22,.22)}.t6{border-color:rgba(220,38,38,.22)}
 .t7{border-color:rgba(251,191,36,.22)}.t8{border-color:rgba(239,68,68,.22)}
 .t9{border-color:rgba(249,115,22,.22)}.t10{border-color:rgba(234,179,8,.22)}.t11{border-color:rgba(220,38,38,.22)}
+.t12{border-color:rgba(245,158,11,.3)}.t13{border-color:rgba(249,115,22,.3)}
+.t14{border-color:rgba(220,38,38,.3)}.t15{border-color:rgba(234,88,12,.3)}
 .qc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
 .qc-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;
   justify-content:center;font-size:22px;background:rgba(255,255,255,.06);flex-shrink:0}
 .qc-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:99px;
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--muted);white-space:nowrap}
+.qc-badge.big{background:linear-gradient(135deg,rgba(245,158,11,.25),rgba(220,38,38,.25));
+  border-color:rgba(251,191,36,.4);color:#fcd34d}
 .qc-name{font-size:15px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:4px}
 .qc-desc{font-size:11px;color:var(--muted);line-height:1.45}
 .qc-footer{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);
@@ -83,6 +91,9 @@ html,body{min-height:100%;background:var(--bg);color:var(--text);
 .pill{font-size:9px;font-weight:600;padding:2px 7px;border-radius:99px;border:1px solid rgba(255,255,255,.1);color:var(--muted)}
 .qc-arr{font-size:16px;color:rgba(255,255,255,.25)}
 .wide{grid-column:1/-1}
+.note{width:100%;background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2);
+  border-radius:14px;padding:13px 15px;margin-bottom:22px;font-size:12px;color:#d8c4a0;line-height:1.5}
+.note b{color:#fcd34d}
 .divider{width:100%;max-width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 auto 28px}
 footer{width:100%;text-align:center;color:var(--muted);font-size:11px;line-height:1.8}
 footer strong{color:rgba(251,191,36,.8)}
@@ -96,17 +107,18 @@ footer strong{color:rgba(251,191,36,.8)}
     <span class="dna-icon">📜</span>
     <div class="hero-label">Historia · 3er año</div>
     <h1><span class="grad">Quizzes<br>de Lulú</span></h1>
-    <p>Examen integrador: de la Revolución Francesa a la caída del poder central (1820). Elegí una unidad y un examen para repasar.</p>
+    <p>Examen integrador: de la Revolución Francesa a la caída del poder central (1820). Elegí una pestaña y un examen para repasar.</p>
     <div class="stats">
-      <div class="stat"><div class="stat-num">11</div><div class="stat-lbl">exámenes</div></div>
-      <div class="stat"><div class="stat-num">165</div><div class="stat-lbl">preguntas</div></div>
-      <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">unidades</div></div>
+      <div class="stat"><div class="stat-num">15</div><div class="stat-lbl">exámenes</div></div>
+      <div class="stat"><div class="stat-num">245</div><div class="stat-lbl">preguntas</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">integradores</div></div>
     </div>
   </div>
 
   <div class="tabs">
     <button class="tab active" onclick="switchVer(1)">📕 Unidad 1</button>
     <button class="tab" onclick="switchVer(2)">📙 Unidad 2</button>
+    <button class="tab" onclick="switchVer(3)">🎯 Integradores</button>
   </div>
 
   <!-- ════════ UNIDAD 1 ════════ -->
@@ -131,6 +143,21 @@ footer strong{color:rgba(251,191,36,.8)}
       <a href="u2-e3.html" class="qc t9"><div class="qc-top"><div class="qc-icon">⚓</div><span class="qc-badge">15 preg.</span></div><div class="qc-name">Examen 3 · Invasiones, juntas y Mayo</div><div class="qc-desc">Preguntas guía 7, 8 y 9.</div><div class="qc-footer"><div class="qc-pills"><span class="pill">Invasiones</span><span class="pill">Mayo 1810</span></div><span class="qc-arr">›</span></div></a>
       <a href="u2-e4.html" class="qc t10"><div class="qc-top"><div class="qc-icon">🏛️</div><span class="qc-badge">15 preg.</span></div><div class="qc-name">Examen 4 · Tucumán: contexto y provincias</div><div class="qc-desc">Preguntas guía 10 y 11.</div><div class="qc-footer"><div class="qc-pills"><span class="pill">Tucumán</span><span class="pill">1816</span></div><span class="qc-arr">›</span></div></a>
       <a href="u2-e5.html" class="qc t11"><div class="qc-top"><div class="qc-icon">📜</div><span class="qc-badge">15 preg.</span></div><div class="qc-name">Examen 5 · Debates y Constitución de 1819</div><div class="qc-desc">Preguntas guía 12 y 13.</div><div class="qc-footer"><div class="qc-pills"><span class="pill">Debates</span><span class="pill">Cepeda</span></div><span class="qc-arr">›</span></div></a>
+    </div>
+  </div>
+
+  <!-- ════════ INTEGRADORES ════════ -->
+  <div class="version" id="v3">
+    <div class="note">🎯 <b>Integradores:</b> exámenes más largos (20 preguntas: 15 opción múltiple + 5 V/F) para repasar temas mezclados. Ideales para la previa del examen.</div>
+    <div class="sec-label"><span>📖 Por unidad</span></div>
+    <div class="grid">
+      <a href="integrador-u1.html" class="qc t12"><div class="qc-top"><div class="qc-icon">🎯</div><span class="qc-badge big">20 preg.</span></div><div class="qc-name">Integrador · Unidad 1</div><div class="qc-desc">Toda la Unidad 1: Rev. Industrial, Ilustración, Locke y Revolución Francesa.</div><div class="qc-footer"><div class="qc-pills"><span class="pill">Unidad 1 completa</span></div><span class="qc-arr">›</span></div></a>
+      <a href="integrador-u2.html" class="qc t13"><div class="qc-top"><div class="qc-icon">🎯</div><span class="qc-badge big">20 preg.</span></div><div class="qc-name">Integrador · Unidad 2</div><div class="qc-desc">Toda la Unidad 2: Napoleón, invasiones inglesas, Mayo y Tucumán.</div><div class="qc-footer"><div class="qc-pills"><span class="pill">Unidad 2 completa</span></div><span class="qc-arr">›</span></div></a>
+    </div>
+    <div class="sec-label"><span>🏆 Toda la materia</span></div>
+    <div class="grid">
+      <a href="integrador-final-1.html" class="qc t14"><div class="qc-top"><div class="qc-icon">🏆</div><span class="qc-badge big">20 preg.</span></div><div class="qc-name">Integrador final · Examen 1</div><div class="qc-desc">Unidades 1 y 2 mezcladas. Repaso general de toda la materia.</div><div class="qc-footer"><div class="qc-pills"><span class="pill">U1 + U2</span></div><span class="qc-arr">›</span></div></a>
+      <a href="integrador-final-2.html" class="qc t15"><div class="qc-top"><div class="qc-icon">🏆</div><span class="qc-badge big">20 preg.</span></div><div class="qc-name">Integrador final · Examen 2</div><div class="qc-desc">Otra tanda de preguntas sobre toda la materia, para volver a practicar.</div><div class="qc-footer"><div class="qc-pills"><span class="pill">U1 + U2</span></div><span class="qc-arr">›</span></div></a>
     </div>
   </div>
 
